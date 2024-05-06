@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TaksList from "./components/TaksList";
 import logo from "./assets/Logo.svg";
 import pencil from "./assets/Edit_duotone.svg";
@@ -37,7 +37,11 @@ function App() {
     },
   ];
 
-  const [tasks, setTasks] = useState(defaultTasks);
+  const [tasks, setTasks] = useState(() => {
+    const savedTask = localStorage.getItem("tasks")
+    return savedTask ? JSON.parse(savedTask) : defaultTasks
+  });
+
   const [showDetail, setShowDetail] = useState(false);
   const [editingTaskId, setEditingTaskId] = useState(null);
 
@@ -91,29 +95,40 @@ function App() {
     setShowDetail(false);
   };
 
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+  }, [tasks])
+
   return (
-    <div className="container">
-      <header className="header-app">
-        <img src={logo} alt="Logo" className="logo" />
-        <div className="header-text">
-          <h1>
-            My Task Board <img src={pencil} alt="P" />
-          </h1>
-          <p>Taks to keep organised</p>
-        </div>
-      </header>
-      <TaksList tasks={tasks} edit={editTask} />
-      <button
-        className="btn-open"
-        onClick={() => {
-          setShowDetail(true);
-          setForm({ title: "To do", description: "", icon: "💻", status: "t" });
-        }}
-      >
-        {" "}
-        <img src={addIcon} alt="Add" />
-        Add new task
-      </button>
+    <>
+      <div className={`container ${showDetail ? "modal-open" : ""}`}>
+        <header className="header-app">
+          <img src={logo} alt="Logo" className="logo" />
+          <div className="header-text">
+            <h1>
+              My Task Board <img src={pencil} alt="P" />
+            </h1>
+            <p>Taks to keep organised</p>
+          </div>
+        </header>
+        <TaksList tasks={tasks} edit={editTask} />
+        <button
+          className="btn-open"
+          onClick={() => {
+            setShowDetail(true);
+            setForm({
+              title: "To do",
+              description: "",
+              icon: "💻",
+              status: "t",
+            });
+          }}
+        >
+          {" "}
+          <img src={addIcon} alt="Add" />
+          Add new task
+        </button>
+      </div>
       {showDetail && (
         <TaskDetail
           form={form}
@@ -123,7 +138,7 @@ function App() {
           del={deleteTask}
         />
       )}
-    </div>
+    </>
   );
 }
 

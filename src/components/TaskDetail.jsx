@@ -7,8 +7,10 @@ import wontDo from "../assets/close_ring_duotone.svg";
 import rountDone from "../assets/Done_round.svg";
 
 const TaskDetail = ({ form, change, add, del, close }) => {
+  // Form
   const { title, description, icon, status } = form;
 
+  // Constantes
   const icons = ["💻", "💬", "☕", "💪", "📚", "⏰"];
 
   const states = [
@@ -74,6 +76,7 @@ const TaskDetail = ({ form, change, add, del, close }) => {
                     id={item}
                     onChange={change}
                     value={icon}
+                    checked={icon === item}
                   />
                   <label htmlFor={item} className="label-icons">
                     {item}
@@ -93,6 +96,7 @@ const TaskDetail = ({ form, change, add, del, close }) => {
                     id={s.value}
                     onChange={change}
                     value={status}
+                    checked={s.value === status}
                   />
                   <label htmlFor={s.value} className="status-radio">
                     <div>
