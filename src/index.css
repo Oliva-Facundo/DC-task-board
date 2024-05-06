@@ -1,0 +1,347 @@
+/* Aca van los imports y se que no se usa todo los estilos en un solo css no quiero renegar XD */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+}
+
+:root {
+  --bg-white: #f8fafc;
+  --orange: #e9a23b;
+  --yellow: #f5d565;
+  --cream: #f5e8d5;
+  --green-clear: #a0ecb1;
+  --green: #32d657;
+  --pink: #f7d4d3;
+  --red: #dd524c;
+  --sky-blue: #e3e8ef;
+  --dark-gray: #97a3b6;
+  --blue: #3662e3;
+  --gray: #00000033;
+}
+
+#root {
+  min-height: 100vh;
+  background-color: var(--bg-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+/* APP */
+.container {
+  min-width: 37rem;
+}
+
+.header-app {
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.header-text > h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.header-text > p {
+  font-size: 1rem;
+}
+
+.btn-open {
+  background: var(--cream);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.btn-open > img {
+  background-color: var(--orange);
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  margin-right: 1rem;
+}
+
+/* TASK LIST */
+
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.task {
+  display: flex;
+  align-items: center;
+  min-height: 4rem;
+  width: 100%;
+  border-radius: 1rem;
+  padding: .9rem;
+  cursor: pointer;
+}
+
+.task > p {
+  background-color: var(--bg-white);
+  padding: .6rem;
+  border-radius: .5rem;
+  margin-right: 1rem;
+}
+
+.text-task {
+  width: 90%;
+}
+
+.img-status-task {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: .5rem;
+}
+
+.t {
+  background-color: var(--sky-blue);
+}
+
+.p {
+  background-color: var(--yellow);
+}
+
+.p > .img-status-task {
+  background-color: var(--orange);
+}
+
+.c {
+  background-color: var(--green-clear);
+}
+
+.c > .img-status-task {
+  background-color: var(--green);
+}
+
+.w {
+  background-color: var(--pink);
+}
+
+.w > .img-status-task {
+  background-color: var(--red);
+}
+
+/* TASK DETAIL */
+.modal-detail {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 96.5vh;
+  margin: 1rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.3);
+  background: var(--bg-white);
+}
+
+.header-detail {
+  display: flex;
+  justify-content: space-between;
+  height: 2.5rem;
+}
+
+.header-detail > h2 {
+  font-weight: 400;
+}
+
+.btn-close-detail {
+  background-color: transparent;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--orange);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-detail {
+  height: calc(100% - 2.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.group-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.group-input > label {
+  color: var(--dark-gray);
+  font-size: 0.75rem;
+}
+
+#title {
+  height: 2.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--sky-blue);
+  outline: none;
+}
+
+#title:focus,
+#title:active {
+  border: 2px solid var(--blue);
+}
+
+#desc {
+  outline: none;
+  border: 2px solid var(--sky-blue);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  resize: none;
+  height: 8rem;
+}
+
+#desc:focus {
+  border: 2px solid var(--blue);
+}
+
+.group-radios p {
+  font-size: 0.75rem;
+  color: var(--dark-gray);
+}
+
+.radios-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.radio-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.label-icons {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--sky-blue);
+  border-radius: 0.5rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.radio-wrapper input[type="radio"] {
+  display: none;
+}
+
+.radio-wrapper input[type="radio"]:checked + .label-icons {
+  background-color: var(--yellow);
+}
+
+.radios-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.radio-status-d {
+  height: 2.5rem;
+  width: 48%;
+}
+
+.status-radio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 3px;
+  width: 100%;
+  height: 2.5rem;
+  border: 2px solid var(--sky-blue);
+  border-radius: .5rem;
+}
+
+.status-radio > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.img-status {
+  height: 100%;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: .5rem;
+  margin-right: .5rem;
+}
+
+.radio-status-d > input[type="radio"] {
+  display: none;
+}
+
+.done-status {
+  background-color: var(--blue);
+  border-radius: 1rem;
+  width: 1.1rem;
+  margin-right: .5rem;
+  visibility: hidden;
+}
+
+.radio-status-d > input[type="radio"]:checked + .status-radio {
+  border: 2px solid var(--blue);
+}
+
+.radio-status-d > input[type="radio"]:checked + .status-radio > .done-status {
+  visibility: visible;
+}
+
+.btns-detail {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 1rem;
+}
+
+.btns-detail > button {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .5rem 1.5rem;
+  justify-content: center;
+  border-radius: 1rem;
+  color: var(--bg-white);
+}
+
+.btn-delete {
+  background-color: var(--dark-gray);
+}
+
+.btn-save {
+  background-color: var(--blue);
+}
