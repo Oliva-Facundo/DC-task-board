@@ -31,9 +31,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
 }
-/* APP */
+/* BOARD */
 .container {
   width: 45%;
 }
@@ -47,7 +46,7 @@
   align-items: start;
   gap: 1rem;
   margin-bottom: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .logo {
@@ -394,3 +393,48 @@
 .btn-save {
   background-color: var(--blue);
 }
+
+/* RESPONSIVE */
+
+/* BOARD */
+@media screen and (max-width: 1024px) { 
+  .container {
+    width: 64%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+}
+
+/* TASKLIST */
+@media screen and (max-width: 1024px) { 
+  .modal-detail {
+    width: 50%;
+  }
+
+  .radios-icons {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 600px) { 
+  .modal-detail {
+    margin: 0.5rem;
+    width: 95%;
+  }
+
+  .radios-icons {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .radio-status-d {
+    width: 100%;
+  }
+}
+
+/* TASKDETAIL */
